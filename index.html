@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gesture Mouse Controller</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>🖐️ Gesture Mouse Controller</h1>
+            <p>Control the virtual mouse using hand gestures</p>
+        </div>
+
+        <div class="status">
+            <span id="statusDot"></span>
+            <span id="statusText">Camera Off</span>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- LEFT SIDE -->
+        <section class="camera-section">
+
+            <div class="card">
+
+                <div class="card-header">
+                    <h2>📷 Camera</h2>
+                    <span id="gestureText">Waiting...</span>
+                </div>
+
+                <div class="camera-box">
+
+                    <video id="inputVideo" autoplay muted playsinline></video>
+
+                    <canvas id="outputCanvas"></canvas>
+
+                    <div id="cameraMessage">
+                        <div class="camera-icon">📷</div>
+                        <p>Camera is not started</p>
+                    </div>
+
+                </div>
+
+                <div class="controls">
+
+                    <button id="startBtn" class="primary-btn">
+                        ▶ Start Camera
+                    </button>
+
+                    <button id="stopBtn" class="danger-btn">
+                        ■ Stop Camera
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>🎮 Gesture Controls</h2>
+
+                <div class="gesture-list">
+
+                    <div class="gesture">
+                        <span class="gesture-icon">☝️</span>
+                        <div>
+                            <strong>Move Cursor</strong>
+                            <p>Point with your index finger</p>
+                        </div>
+                    </div>
+
+                    <div class="gesture">
+                        <span class="gesture-icon">🤏</span>
+                        <div>
+                            <strong>Left Click</strong>
+                            <p>Bring thumb and index finger together</p>
+                        </div>
+                    </div>
+
+                    <div class="gesture">
+                        <span class="gesture-icon">✋</span>
+                        <div>
+                            <strong>Open Hand</strong>
+                            <p>Pause cursor movement</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="control-section">
+
+            <div class="card">
+
+                <h2>🖱️ Virtual Mouse</h2>
+
+                <div class="mouse-area" id="mouseArea">
+
+                    <div id="virtualCursor">
+                        <div class="cursor-arrow">➤</div>
+                    </div>
+
+                    <p class="mouse-instruction">
+                        Move your index finger in front of the camera
+                    </p>
+
+                    <button class="demo-button">
+                        Test Button
+                    </button>
+
+                    <button class="demo-button second">
+                        Another Button
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>📊 Tracking Information</h2>
+
+                <div class="info-grid">
+
+                    <div class="info-box">
+                        <span>Hand Detected</span>
+                        <strong id="handStatus">No</strong>
+                    </div>
+
+                    <div class="info-box">
+                        <span>Cursor X</span>
+                        <strong id="cursorX">0</strong>
+                    </div>
+
+                    <div class="info-box">
+                        <span>Cursor Y</span>
+                        <strong id="cursorY">0</strong>
+                    </div>
+
+                    <div class="info-box">
+                        <span>Gesture</span>
+                        <strong id="currentGesture">None</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card project-info">
+
+                <h2>💡 About Project</h2>
+
+                <p>
+                    This project uses computer vision to detect hand landmarks
+                    from the webcam and converts the index-finger movement into
+                    a virtual mouse movement.
+                </p>
+
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>MediaPipe</span>
+                    <span>Computer Vision</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Hand Gesture Mouse Controller • Computer Vision Project</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

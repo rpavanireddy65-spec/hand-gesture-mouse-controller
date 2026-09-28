@@ -1,0 +1,505 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #5b4bdb;
+    --secondary: #7c3aed;
+    --dark: #15162b;
+    --card: #ffffff;
+    --background: #f4f6ff;
+    --text: #202235;
+    --muted: #777b91;
+    --success: #20b26b;
+    --danger: #e5484d;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+
+/* TOP BAR */
+
+.topbar {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color: white;
+
+    padding: 22px 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.topbar h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.topbar p {
+    opacity: 0.85;
+    font-size: 14px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: rgba(255,255,255,0.15);
+
+    padding: 10px 16px;
+
+    border-radius: 30px;
+}
+
+#statusDot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #ff4d4d;
+}
+
+
+/* MAIN */
+
+.container {
+    width: 94%;
+    max-width: 1400px;
+
+    margin: 30px auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* CARD */
+
+.card {
+    background: var(--card);
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(50, 50, 90, 0.08);
+}
+
+.card h2 {
+    font-size: 19px;
+
+    margin-bottom: 18px;
+}
+
+
+/* CAMERA */
+
+.card-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+#gestureText {
+    background: #eeeaff;
+
+    color: var(--primary);
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.camera-box {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 10;
+
+    background: #111426;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+#inputVideo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scaleX(-1);
+}
+
+#outputCanvas {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transform: scaleX(-1);
+}
+
+#cameraMessage {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    background: rgba(10, 12, 30, 0.7);
+}
+
+.camera-icon {
+    font-size: 50px;
+
+    margin-bottom: 10px;
+}
+
+
+/* BUTTONS */
+
+.controls {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.primary-btn,
+.danger-btn {
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    color: white;
+}
+
+.primary-btn {
+    background: var(--primary);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+.danger-btn {
+    background: var(--danger);
+}
+
+.danger-btn:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* GESTURE LIST */
+
+.gesture-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.gesture {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: #f7f7ff;
+
+    padding: 14px;
+
+    border-radius: 12px;
+}
+
+.gesture-icon {
+    font-size: 30px;
+}
+
+.gesture p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 4px;
+}
+
+
+/* VIRTUAL MOUSE */
+
+.mouse-area {
+    position: relative;
+
+    height: 360px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0edff,
+            #e8f4ff
+        );
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    border: 2px dashed #c5c1ef;
+}
+
+.mouse-instruction {
+    position: absolute;
+
+    top: 25px;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.demo-button {
+    position: absolute;
+
+    left: 25%;
+
+    top: 45%;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.demo-button.second {
+    left: 55%;
+
+    background: var(--secondary);
+}
+
+.demo-button:hover {
+    transform: scale(1.05);
+}
+
+
+/* VIRTUAL CURSOR */
+
+#virtualCursor {
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    display: none;
+}
+
+.cursor-arrow {
+    font-size: 30px;
+
+    color: #111;
+
+    text-shadow:
+        1px 1px white,
+        -1px -1px white;
+}
+
+
+/* INFORMATION */
+
+.info-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.info-box {
+    background: #f7f7ff;
+
+    border-radius: 12px;
+
+    padding: 15px;
+}
+
+.info-box span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-bottom: 6px;
+}
+
+.info-box strong {
+    font-size: 18px;
+
+    color: var(--primary);
+}
+
+
+/* PROJECT INFO */
+
+.project-info p {
+    line-height: 1.7;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.tech-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.tech-tags span {
+    background: #eeeaff;
+
+    color: var(--primary);
+
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+
+        margin-top: 20px;
+    }
+
+    .topbar {
+        padding: 20px;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mouse-area {
+        height: 300px;
+    }
+}
